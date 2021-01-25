@@ -1,0 +1,25 @@
+body{
+    background-color: aquamarine;
+}
+.div{
+    display: flex;
+}
+.div2{
+    margin-left: 100px;
+}
+/*#users{*/
+/*    display: none;*/
+/*}*/
+.userLi{
+    list-style-type: none;
+}
+.span{
+    color: red;
+}
+.admin-inp::placeholder{
+    color: dodgerblue;
+}
+.book-inp::placeholder{
+    color: orange;
+    width: 167px;
+}

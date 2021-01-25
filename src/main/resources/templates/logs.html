@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Page</title>
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="/css/leader.css">
+</head>
+<body>
+
+<div class="div">
+    <div class="div1">
+        <ul class="userLi">
+            <li th:each="user:${user}">
+                <img th:src="@{/image(name=${user.profilePic})}" width="100"
+                     th:if="${user.profilePic != null && user.profilePic.length() != 14}"/>
+                <img th:src="@{/images/boy.png}" width="100"
+                     th:if="${user.profilePic.length()==14 && user.getGender().name()=='MALE'}"/>
+                <img th:src="@{/images/girl.jpg}" width="100"
+                     th:if="${user.profilePic.length()==14 && user.getGender().name()=='FEMALE'}">
+            </li>
+            <br>
+            <li class="li"><a th:href="@{/member/page}">Projects</a></li>
+            <br>
+            <li class="li"><a th:href="@{/log/page}">Logs</a></li>
+            <br>
+            <li class="li"><a th:href="@{/logout}">Log out</a></li>
+        </ul>
+
+    </div>
+    <div class="div2">
+        <p th:text="${user.getName()}"></p>
+        <p th:text="${user.getSurname()}"></p>
+    </div>
+    <div class="div4">
+        <h1 class="h1">All Logs</h1>
+        <h4 class="msg" th:text="${msg}" th:if="${msg!=null}"></h4>
+        <h4 class="msg2" th:text="${msg2}" th:if="${msg2!=null}"></h4>
+        <form action="/delete" method="post">
+            <div class="div5">
+                <div class="div6"><a class="a" th:href="@{/create/page}" style="color: white">New</a></div>
+                <input class="inp2" type="submit" th:value="Delete"><br>
+            </div>
+            <br>
+            <table style="width:450px">
+                <thead>
+                <tr>
+                    <th class="th">Select</th>
+                    <th class="th">Date</th>
+                    <th class="th">Project</th>
+                    <th class="th">Hours</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="log: ${logs}">
+                    <td class="td"><input type="checkbox" name="id" th:value="${log.getId()}"></td>
+                    <td class="td" th:text="${log.getDate()}"></td>
+                    <td class="td" th:text="${log.getProject().getName()}"></td>
+                    <td class="td" th:text="${log.getHours()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

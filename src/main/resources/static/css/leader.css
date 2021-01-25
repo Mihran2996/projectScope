@@ -1,0 +1,37 @@
+.div {
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+}
+.userLi>.li{
+    text-decoration: none;
+}
+.div2 {
+    margin-left: 15px;
+    width: 100px;
+    height: 270px;
+    border-right: 1px solid black;
+
+}
+.div3{
+    margin-left: 150px;
+    width: 600px;
+}
+.userLi {
+    list-style-type: none;
+}
+.td{
+    border: 1px solid black;
+}
+.th{
+    background-color: limegreen;
+    border: 1px solid black;
+}
+
+.h2{
+    color: limegreen;
+    margin-left: 120px;
+}
+#users{
+    border: 1px solid black;
+}

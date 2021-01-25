@@ -1,0 +1,25 @@
+body{
+    background-color: aquamarine;
+}
+::placeholder{
+    color: dodgerblue;
+}
+.div{
+    display: flex;
+}
+.div2{
+    margin-left: 10px;
+}
+.submit{
+    width: 176px;
+    background-color: blue;
+}
+.span{
+    color: red;
+}
+.msg{
+    color: red;
+}
+.msg2{
+    color: green;
+}

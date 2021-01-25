@@ -1,0 +1,107 @@
+.div2 {
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+}
+
+.msg {
+    color: red;
+}
+
+.msg2 {
+    color: limegreen;
+}
+
+.div5 {
+    display: flex;
+}
+
+.inp3 {
+    width: 135px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.submit {
+    width: 75px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: limegreen;
+    color: white;
+    margin-left: 380px;
+}
+
+.submit2 {
+    width: 75px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: limegreen;
+    color: white;
+    margin-left: 524px;
+    margin-top:-50px;
+}
+
+
+.a {
+    margin-left: 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    position: absolute;
+}
+
+.userLi > .li {
+    text-decoration: none;
+}
+
+.div6 {
+    background-color: limegreen;
+    width: 75px;
+    height: 50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.inp2 {
+    background-color: red;
+    color: white;
+    width: 75px;
+    height: 50px;
+    margin-left: 40px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.div3 {
+    margin-left: 15px;
+    width: 100px;
+    height: 270px;
+    border-right: 1px solid black;
+
+}
+
+.div4 {
+    margin-left: 150px;
+    width: 600px;
+}
+
+.userLi {
+    list-style-type: none;
+}
+
+.td {
+    border: 1px solid black;
+}
+
+.th {
+    background-color: limegreen;
+    border: 1px solid black;
+}
+
+.h1 {
+    color: limegreen;
+    margin-left: 160px;
+}
+
+#users {
+    border: 1px solid black;
+}

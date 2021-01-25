@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Page</title>
+    <link rel="stylesheet" href="/css/create.css">
+
+</head>
+<body>
+
+
+<form action="/create/project" method="post" th:object="${project}">
+    <h3>Please Create Project</h3><br>
+    <input class="inp" type="text" name="name" placeholder="name"><br>
+    <span class="span" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+    <input class="inp" type="date" name="deadline"><br>
+    <span class="span" th:if="${#fields.hasErrors('deadline')}" th:errors="*{deadline}"></span><br>
+    <div>
+        <table style="border:1px solid black">
+            <thead>
+            <tr>
+                <th class="th">Select</th>
+                <th class="th">Members</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${users}">
+                <td class="td"><input type="checkbox" name="id" th:value="${user.getId()}"></td>
+                <td class="td" th:text="${user.getName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <h4 class="span" th:if="${msg!=null}" th:text="${msg}"></h4>
+    </div>
+
+    <input class="submit" type="submit" th:value="Create">
+</form>
+</body>
+</html>

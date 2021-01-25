@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="/css/register.css">
+
+</head>
+<div>
+
+    <form action="/add/user" method="post" enctype="multipart/form-data" th:object="${userRequest}">
+        <h3>Please Registered</h3><br>
+        <h4 class="msg" th:text="${msg}" th:if="${msg!=null}"></h4>
+        <input class="inp" type="text" name="name" placeholder="name"><br>
+                <span class="span" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+        <input class="inp" type="text" name="surname" placeholder="surname"><br>
+                <span class="span" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br>
+        <input class="inp" type="text" name="username" placeholder="email"><br>
+                <span class="span" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br>
+        <input class="inp" type="password" name="password" placeholder="password"><br>
+                <span class="span" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br>
+        <input class="inp" type="password" name="confirmPassword" placeholder="confirmPassword"><br>
+                <span class="span" th:if="${#fields.hasErrors('confirmPassword')}"
+                      th:errors="*{confirmPassword}"></span><br>
+        <div class="div">
+            <div>
+                <input type="radio" name="gender" value="MALE">
+                <label>Male</label><br>
+                <input type="radio" name="gender" value="FEMALE">
+                <label>Female</label>
+                                <span class="span" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br>
+            </div>
+            <div class="div2">
+                <select name="role">
+                    <option value="TEAM_LEADER">Lieder</option>
+                    <option value="TEAM_MEMBER">Member</option>
+                </select>
+            </div>
+            <br>
+        </div>
+        <input type="file" name="image" placeholder="image"><br><br>
+        <input class="submit" type="submit" th:value="add">
+    </form>
+    <h4 class="msg2" th:text="${msg2}" th:if="${msg2!=null}"></h4>
+</div>
+</body>
+</html>
