@@ -20,16 +20,7 @@ public class ProjectService {
     }
 
     public List<Project> getAllProjectsById(int id) {
-        List<Project> projects = new ArrayList<>();
-        List<Project> allProjects = projectRepository.findAll();
-        for (int i = 0; i < allProjects.size(); i++) {
-            for (User user : allProjects.get(i).getUsers()) {
-                if (user.getId() == id) {
-                    projects.add(allProjects.get(i));
-                }
-            }
-        }
-        return projects;
+        return projectRepository.getAllProjectByUserId(id);
     }
 
     public void delete(List<Integer> ids) {

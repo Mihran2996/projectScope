@@ -16,37 +16,28 @@ public class LogService {
     private final LogRepository logRepository;
     private final ProjectRepository projectRepository;
 
+
     public void delete(List<Integer> ids) {
         List<Project> projects = new LinkedList<>();
         for (Integer id : ids) {
             Log log = logRepository.getOne(id);
-            logRepository.deleteById(id);
             projects.add(projectRepository.getOne(log.getProject().getId()));
+            logRepository.deleteById(id);
         }
         for (Project project : projects) {
-            int id = project.getId();
-            sumLog(id);
+            sumLog(project.getId());
         }
     }
 
     public void sumLog(int projectId) {
         Project project = projectRepository.getOne(projectId);
-        List<Log> allByProjectId = logRepository.findAllByProjectId(projectId);
-        double sum = 0.0;
-        int j = 0;
-        for (int i = 0; i < allByProjectId.size(); i += 2) {
-            j = i + 1;
-            if (i == allByProjectId.size()) {
-                break;
-            } else if (allByProjectId.size() == 1) {
-                Log byProjectId = logRepository.findByProjectId(projectId);
-                sum = byProjectId.getHours();
-                break;
-            } else {
-                sum += Double.sum(allByProjectId.get(i).getHours(), allByProjectId.get(j).getHours());
-            }
+        List<Log> logs = logRepository.findAllLogByProjectId(projectId);
+        if (logs.size() == 0) {
+            project.setHours(0.0);
+            projectRepository.save(project);
+        } else {
+            project.setHours(logRepository.getSum(projectId));
+            projectRepository.save(project);
         }
-        project.setHours(sum);
-        projectRepository.save(project);
     }
 }
